@@ -16,6 +16,7 @@ async function checkWeather(city) {
 
 
   let data = await response.json();
+  console.log(data)
 
   if (data.cod === 401){
     document.querySelector('.error_api').style.display = 'inline-flex'
@@ -27,7 +28,7 @@ async function checkWeather(city) {
   document.querySelector(".humidity").innerHTML = data.main.humidity + "%";
   document.querySelector(".wind").innerHTML = data.wind.speed + "km/h";
 
-  document.querySelector(".feels_like").innerHTML = Math.round(data.main.feels_like) + "°c";
+  // document.querySelector(".feels_like").innerHTML = Math.round(data.main.feels_like) + "°c";
 
   if (data.weather[0].main === "Clouds"){
       weatherIcon.src = "./images/clouds.png"
